@@ -1,8 +1,138 @@
-<html>
-  <head>This GITHUB</head>
-  <body>
-    <h1>This is my wed</h1>
-    <p>Hello world!!</p>
-    <p>Hakottt!</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grill Garage Feedback System</title>
+  <link rel="stylesheet" href="design.css">
+  <script src="database.js" defer></script>
+</head>
+<body>
+  
+  <!-- Logo visibilty on all pages -->
+  <div style="text-align:center; margin-top:20px;">
+    <img src="logo.png" alt="Grill Garage Logo" class="logo">
+  </div>
+
+  <div class="container">
+
+    <!-- Home Screen UI -->
+    <div id="homeui">
+      <h1>🔥 Welcome to Grill Garage 🔥</h1>
+      <p>Please choose an option below:</p>
+      <button id="customerBtn">Customer</button>
+      <button id="ownerBtn">Owner</button>
+    </div>
+
+    <!-- Customer Feedback Form UI-->
+    <div id="cxui" class="hidden">
+      <h2>Grill Garage Feedback Form</h2>
+      <label> Name (optional):</label>
+      <input type="text" id="name">
+
+      <label>How would you rate the overall taste of your meal?</label>
+      <select id="taste" required>
+        <option value="">Select</option>
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Average</option>
+        <option>Poor</option>
+      </select>
+
+      <label>Was the food visually appealing?</label>
+      <select id="appearance" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>How would you rate the quality of the drinks you ordered?</label>
+      <select id="drinks" required>
+        <option value="">Select</option>
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Average</option>
+        <option>Poor</option>
+      </select>
+
+      <label>Was the staff friendly and attentive?</label>
+      <select id="staff" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>Did your server handle your requests efficiently?</label>
+      <select id="efficiency" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>Were you greeted promptly upon entering?</label>
+      <select id="greeting" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>How likely are you to dine with us again in the future?</label>
+      <select id="return" required>
+        <option value="">Select</option>
+        <option>Very Likely</option>
+        <option>Likely</option>
+        <option>Unlikely</option>
+      </select>
+
+      <label>Do you have any additional comments or feedback?</label>
+      <textarea id="comments" rows="3"></textarea>
+
+      <button id="submitBtn">Submit</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <!-- Thank You Screen UI -->
+    <div id="tyscreen" class="hidden">
+      <h2>Thank You for Taking the Time to Share Your Feedback! 😊</h2>
+      <p>We appreciate your feedback and hope to serve you again at Grill Garage!</p>
+      <button id="ReturnBtn">Return Home</button>
+    </div>
+
+    <!-- Owner Login Screen UI -->
+    <div id="loginScreen" class="hidden">
+      <h2>Owner Login</h2>
+      <input type="text" id="ownerUser" placeholder="Username">
+      <input type="password" id="ownerPass" placeholder="Password">
+      <button id="loginBtn">Login</button>
+      <button id="backBtn">Back</button>
+    </div>
+
+    <!-- Owner Dashboard UI -->
+    <div id="ownerui" class="hidden">
+      <h2>Grill Garage Feedback Dashboard</h2>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Taste</th>
+              <th>Appearance</th>
+              <th>Drinks</th>
+              <th>Staff</th>
+              <th>Efficiency</th>
+              <th>Greeting</th>
+              <th>Return</th>
+              <th>Comments</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="feedbackTable"></tbody>
+        </table>
+      </div>
+
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </div>
+</body>
 </html>
