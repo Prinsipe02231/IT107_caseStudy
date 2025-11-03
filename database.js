@@ -10,6 +10,7 @@ const customerBtn = document.getElementById("customerBtn");
 const ownerBtn = document.getElementById("ownerBtn");
 const submitBtn = document.getElementById("submitBtn");
 const resetBtn = document.getElementById("resetBtn");
+const backToHomeBtn = document.getElementById("backToHomeBtn");
 const ReturnBtn = document.getElementById("ReturnBtn");
 const loginBtn = document.getElementById("loginBtn");
 const logoutBtn = document.getElementById("logoutBtn");
