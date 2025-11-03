@@ -1,1 +1,140 @@
+/* All Pages*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0a1f44;
+}
 
+/* Main Container */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  color: #0a1f44;
+}
+
+/* Logo design */
+.logo {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 120px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Headings */
+h1, h2 {
+  text-align: center;
+  color: #0a1f44;
+}
+
+/* All buttons */
+button {
+  background-color: #0a1f44;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #1e3a8a;
+  transform: scale(1.05);
+}
+
+/* inputs */
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  color: #0a1f44;
+}
+
+/* hidden pages */
+.hidden {
+  display: none;
+}
+
+/* home screen */
+#homeui {
+  text-align: center;
+}
+
+#homeui button {
+  margin: 20px;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+}
+
+/* Thankyou Screen */
+#tyscreen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Owner Login Screen */
+#loginScreen {
+  text-align: center;
+}
+
+#loginScreen input {
+  margin-bottom: 10px;
+  width: 250px;
+}
+
+/* Feedback Table */
+.table-container {
+  overflow-x: auto;
+  max-height: 400px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: white;
+  color: #0a1f44;
+  border-radius: 6px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #0a1f44;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+/* Devices Friendly */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
