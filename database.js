@@ -85,6 +85,12 @@ resetBtn.addEventListener("click", () => {
   document.getElementById("comments").value = "";
 });
 
+//Return to home(misclicked)
+backToHomeBtn.addEventListener("click", () => {
+  cxui.classList.add("hidden");     // Hide customer feedback form
+  homeui.classList.remove("hidden"); // Show home screen
+});
+
 // Return to home
 ReturnBtn.addEventListener("click", () => {
   tyscreen.classList.add("hidden");
