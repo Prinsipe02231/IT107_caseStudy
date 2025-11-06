@@ -162,14 +162,12 @@ function deleteFeedback(index) {
 }
 
 // Delete all feedback
-if (deleteAllBtn) {
-  deleteAllBtn.addEventListener("click", () => {
-    if (confirm("This will permanently delete all feedback. Continue?")) {
-      localStorage.removeItem("feedbackList");
-      feedbackList = [];
-      const feedbackTable = document.getElementById("feedbackTable");
-      if (feedbackTable) feedbackTable.innerHTML = "";
-      alert("All feedback has been deleted.");
-    }
-  });
-}
+deleteAllBtn.addEventListener("click", () => {
+  if (confirm("This will permanently delete all feedback. Continue?")) {
+    localStorage.removeItem("feedbackList");
+    feedbackList = [];
+    const feedbackTable = document.getElementById("feedbackTable");
+    if (feedbackTable) feedbackTable.innerHTML = "";
+    alert("All feedback has been deleted.");
+  }
+});
