@@ -86,8 +86,9 @@ submitBtn.addEventListener("click", () => {
 
   cxui.classList.add("hidden");
   tyscreen.classList.remove("hidden");
+});
 
-  const convDiv = document.getElementById("conversationSection");
+const convDiv = document.getElementById("conversationSection");
 convDiv.innerHTML = "";
 
 let visible = feedbackList.filter(f => f.showToCustomers);
@@ -99,7 +100,6 @@ visible.forEach(fb => {
       <b>Owner:</b> ${fb.ownerReply || "(No reply yet)"}
     </div>
   `;
-});
 });
 
 // Reset form
