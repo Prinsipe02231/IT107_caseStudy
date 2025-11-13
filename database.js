@@ -17,6 +17,13 @@ const logoutBtn = document.getElementById("logoutBtn");
 const backBtn = document.getElementById("backBtn");
 const deleteAllBtn = document.getElementById("deleteAllBtn");
 
+//Reply Buttons
+let currentReplyIndex = null;
+const replyModal = document.getElementById("replyModal");
+const replyInput = document.getElementById("replyInput");
+const saveReplyBtn = document.getElementById("saveReplyBtn");
+const closeModalBtn = document.getElementById("closeModalBtn");
+
 // Multiple owner accounts
 const OWNER_ACCOUNTS = [
   { username: "cortezkurtjoshua@gmail.com", password: "kjcc0608" },
@@ -48,16 +55,18 @@ backBtn.addEventListener("click", () => {
 // Submit feedback
 submitBtn.addEventListener("click", () => {
   const feedback = {
-    name: document.getElementById("name").value || "Anonymous",
-    taste: document.getElementById("taste").value,
-    appearance: document.getElementById("appearance").value,
-    drinks: document.getElementById("drinks").value,
-    staff: document.getElementById("staff").value,
-    efficiency: document.getElementById("efficiency").value,
-    greeting: document.getElementById("greeting").value,
-    return: document.getElementById("return").value,
-    comments: document.getElementById("comments").value
-  };
+   name: document.getElementById("name").value || "Anonymous",
+   taste: document.getElementById("taste").value,
+   appearance: document.getElementById("appearance").value,
+   drinks: document.getElementById("drinks").value,
+   staff: document.getElementById("staff").value,
+   efficiency: document.getElementById("efficiency").value,
+   greeting: document.getElementById("greeting").value,
+   return: document.getElementById("return").value,
+   comments: document.getElementById("comments").value,
+   ownerReply: "",          
+   showToCustomers: false   
+};
 
   if (
     !feedback.taste ||
@@ -77,6 +86,20 @@ submitBtn.addEventListener("click", () => {
 
   cxui.classList.add("hidden");
   tyscreen.classList.remove("hidden");
+
+  const convDiv = document.getElementById("conversationSection");
+convDiv.innerHTML = "";
+
+let visible = feedbackList.filter(f => f.showToCustomers);
+
+visible.forEach(fb => {
+  convDiv.innerHTML += `
+    <div style="background:#eee; padding:10px; margin:10px; border-radius:6px;">
+      <b>Customer:</b> ${fb.comments || "(No comment)"}<br>
+      <b>Owner:</b> ${fb.ownerReply || "(No reply yet)"}
+    </div>
+  `;
+});
 });
 
 // Reset form
@@ -139,11 +162,42 @@ function loadFeedback() {
       <td>${item.greeting}</td>
       <td>${item.return}</td>
       <td>${item.comments}</td>
+      <td><button class="replyBtn" data-index="${index}">Reply</button></td>
+      <td><input type="checkbox" class="showCheck" data-index="${index}" ${item.showToCustomers ? "checked" : ""}></td>
       <td><button class="deleteBtn" data-index="${index}">Delete</button></td>
     `;
     table.appendChild(row);
   });
+  
+  // Reply button event
+  document.querySelectorAll(".replyBtn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    currentReplyIndex = e.target.getAttribute("data-index");
+    replyInput.value = feedbackList[currentReplyIndex].ownerReply || "";
+    replyModal.classList.remove("hidden");
+  });
+});
+  
+saveReplyBtn.addEventListener("click", () => {
+  feedbackList[currentReplyIndex].ownerReply = replyInput.value;
+  localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+  replyModal.classList.add("hidden");
+  loadFeedback();
+});
 
+closeModalBtn.addEventListener("click", () => {
+  replyModal.classList.add("hidden");
+});
+  
+  // Checkbox: show to customers
+document.querySelectorAll(".showCheck").forEach(chk => {
+  chk.addEventListener("change", (e) => {
+    const index = e.target.getAttribute("data-index");
+    feedbackList[index].showToCustomers = e.target.checked;
+    localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+  });
+});
+  
   document.querySelectorAll(".deleteBtn").forEach(btn => {
     btn.addEventListener("click", event => {
       const index = event.target.getAttribute("data-index");
