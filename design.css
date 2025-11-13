@@ -29,6 +29,27 @@ h1, h2 {
   color: #0a1f44;
 }
 
+/* Reply Background */
+.reply-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Reply Box */
+.reply-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+}
 /* All buttons */
 button {
   background-color: #0a1f44;
