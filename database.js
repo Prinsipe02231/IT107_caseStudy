@@ -96,8 +96,8 @@ let visible = feedbackList.filter(f => f.showToCustomers);
 visible.forEach(fb => {
   convDiv.innerHTML += `
     <div style="background:#eee; padding:10px; margin:10px; border-radius:6px;">
-      <b>Customer:</b> ${fb.comments || "(No comment)"}<br>
-      <b>Owner:</b> ${fb.ownerReply || "(No reply yet)"}
+      <b>${fb.name}:</b> ${fb.comments}<br>
+      <b>Owner:</b> ${fb.ownerReply}<br>
     </div>
   `;
 });
