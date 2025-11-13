@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="design.css">
   <script src="database.js" defer></script>
 </head>
+
+  <div id="replyModal" class="hidden modal-bg">
+  <div class="modal-box">
+    <h3>Reply to Customer</h3>
+    <textarea id="replyInput" rows="4"></textarea>
+    <br><br>
+    <button id="saveReplyBtn">Save Reply</button>
+    <button id="closeModalBtn">Cancel</button>
+  </div>
+</div>
+  
 <body>
   
   <!-- Logo visibilty on all pages -->
@@ -125,6 +136,8 @@
               <th>Greeting</th>
               <th>Return</th>
               <th>Comments</th>
+              <th>Reply</th>
+              <th>Show</th>
               <th>Delete</th>
             </tr>
           </thead>
